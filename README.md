@@ -1,21 +1,21 @@
-# 🛍️ Black Friday Sales Prediction
+# 🛍️ Purchase Prediction Engine
 
-A machine learning project that predicts **customer purchase amounts during Black Friday sales** using customer demographics, occupation, location, and product-category information.
+A machine learning project that predicts **customer purchase amounts** using demographic, geographic, and product-related features.
 
-The project applies **Linear Regression** to learn the relationship between customer/product attributes and purchase amount, then evaluates the model on unseen test data.
+The project uses **Linear Regression** to model the relationship between customer and product attributes and purchase amount, followed by evaluation on unseen test data.
 
 ---
 
 ## 📌 Project Overview
 
-Black Friday shopping generates large amounts of transactional data containing information about customers, products, and their purchasing behaviour.
+Understanding customer purchasing behaviour is an important problem in retail analytics. Transactional datasets contain valuable information about customers, products, demographics, and purchasing patterns that can be used to build predictive models.
 
-The goal of this project is to build a regression model that can:
+The goal of this project is to develop a regression-based machine learning pipeline that can:
 
 * Predict the **purchase amount** for a customer-product combination
-* Measure how well customer and product attributes explain purchasing behaviour
-* Evaluate the prediction performance using standard regression metrics
-* Generate purchase predictions for new customer records
+* Analyse how customer and product attributes relate to purchasing behaviour
+* Evaluate prediction performance using standard regression metrics
+* Generate purchase predictions for unseen customer records
 
 ### 🎯 Prediction Target
 
@@ -27,7 +27,7 @@ The goal of this project is to build a regression model that can:
 
 ## 📊 Dataset
 
-The project uses the **Black Friday Sales dataset**, containing **550,068 purchase transactions** and 12 attributes.
+The project uses a retail purchase dataset containing **550,068 transactions** and 12 attributes.
 
 | Feature                      | Description                                |
 | ---------------------------- | ------------------------------------------ |
@@ -44,7 +44,44 @@ The project uses the **Black Friday Sales dataset**, containing **550,068 purcha
 | `Product_Category_3`         | Tertiary product category                  |
 | `Purchase`                   | Purchase amount — **prediction target**    |
 
-The observed purchase values range from **12 to 23,961**, with an average purchase amount of approximately **9,264**.
+The observed purchase amounts range from **12 to 23,961**, with an average purchase amount of approximately **9,264**.
+
+---
+
+## 🔄 Machine Learning Pipeline
+
+The project follows a typical supervised machine learning workflow:
+
+```text
+Raw Dataset
+     │
+     ▼
+Data Exploration
+     │
+     ▼
+Data Preprocessing
+     │
+     ├── Missing Value Handling
+     ├── Categorical Encoding
+     ├── Feature Transformation
+     └── Feature Scaling
+     │
+     ▼
+Train / Test Split
+     │
+     ▼
+Linear Regression
+     │
+     ▼
+Model Evaluation
+     │
+     ├── MAE
+     ├── RMSE
+     └── R² Score
+     │
+     ▼
+Purchase Prediction
+```
 
 ---
 
@@ -52,9 +89,7 @@ The observed purchase values range from **12 to 23,961**, with an average purcha
 
 ### Linear Regression
 
-The project uses **Linear Regression** as the primary prediction model.
-
-The model learns a relationship between the available customer/product features and the purchase amount.
+**Linear Regression** is used as the primary regression model to predict purchase amounts from customer and product attributes.
 
 The modelling pipeline includes:
 
@@ -62,14 +97,15 @@ The modelling pipeline includes:
 * Numerical feature transformation
 * Feature scaling
 * Linear Regression
+* Model evaluation on unseen test data
 
-The final model is implemented using `scikit-learn` and trained on the training dataset before being evaluated on unseen test data.
+The model is implemented using **scikit-learn**.
 
 ---
 
 ## 📈 Model Performance
 
-The model was evaluated using three regression metrics:
+The model was evaluated using three standard regression metrics:
 
 | Metric       |       Result |
 | ------------ | -----------: |
@@ -77,7 +113,7 @@ The model was evaluated using three regression metrics:
 | **RMSE**     | **2,946.09** |
 | **R² Score** |   **0.6546** |
 
-The model achieved an **R² score of 0.6546 on the test set**, meaning that the model explains approximately **65.46% of the variation in purchase amounts** in the test data.
+The model achieved an **R² score of 0.6546 on the test set**, indicating that approximately **65.46% of the variation in purchase amounts** is explained by the features used in the model.
 
 ### Train vs Test Performance
 
@@ -86,28 +122,38 @@ The model achieved an **R² score of 0.6546 on the test set**, meaning that the 
 | Training |   0.6619 |
 | Testing  |   0.6546 |
 
-The relatively close training and testing R² scores indicate that the model's performance is similar across the two datasets.
+The relatively small difference between the training and testing R² scores indicates that the model performs similarly on both datasets.
 
 ---
 
-## 📉 Linear Regression Results
+## 📉 Prediction Results
 
-The following plot shows the relationship between the **actual purchase amounts** and the **predicted purchase amounts** produced by the Linear Regression model.
+The following visualization compares the **actual purchase amounts** with the **predicted purchase amounts** generated by the Linear Regression model.
 
-<img width="765" height="549" alt="image" src="https://github.com/user-attachments/assets/abb87525-7af1-4abe-8537-346eeacfcad4" />
+<img width="765" height="549" alt="Actual vs Predicted Purchase Amounts" src="https://github.com/user-attachments/assets/abb87525-7af1-4abe-8537-346eeacfcad4" />
 
 ---
 
 ## 🧰 Technologies Used
 
-* **Python**
-* **Pandas** — data handling
-* **NumPy** — numerical computation
-* **Matplotlib** — visualization
-* **Seaborn** — exploratory visualization
-* **Scikit-learn** — machine learning and evaluation
-* **Jupyter Notebook** — experimentation and analysis
-* **Power BI** — additional dashboard visualizations
+| Technology           | Purpose                               |
+| -------------------- | ------------------------------------- |
+| **Python**           | Core programming language             |
+| **Pandas**           | Data manipulation and analysis        |
+| **NumPy**            | Numerical computation                 |
+| **Matplotlib**       | Data visualization                    |
+| **Seaborn**          | Exploratory data visualization        |
+| **Scikit-learn**     | Machine learning and model evaluation |
+| **Jupyter Notebook** | Experimentation and analysis          |
+| **Power BI**         | Interactive data visualization        |
+
+---
+
+## 📊 Power BI Dashboard
+
+The project also includes an interactive **Power BI dashboard** for exploring customer demographics, product categories, purchasing behaviour, and overall retail patterns.
+
+<img width="1576" height="846" alt="Power BI Dashboard" src="https://github.com/user-attachments/assets/f25de568-1207-4ad7-995f-49941847dee9" />
 
 ---
 
@@ -116,8 +162,8 @@ The following plot shows the relationship between the **actual purchase amounts*
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/simran2104/black-friday-sales-prediction.git
-cd black-friday-sales-prediction
+git clone https://github.com/simran2104/purchase-prediction-engine.git
+cd purchase-prediction-engine
 ```
 
 ### 2. Install dependencies
@@ -134,12 +180,11 @@ Open:
 Black-Friday-Sales-Prediction.ipynb
 ```
 
-and execute the cells to train the model, evaluate its performance, visualize the predictions, and generate purchase predictions.
+Execute the notebook cells to:
 
----
-
-## 📊 Power BI Dashboard
-
-The project also includes an interactive Power BI dashboard for exploring Black Friday sales patterns and customer purchasing behaviour.
-
-<img width="1576" height="846" alt="image" src="https://github.com/user-attachments/assets/f25de568-1207-4ad7-995f-49941847dee9" />
+* Explore the dataset
+* Perform data preprocessing
+* Train the regression model
+* Evaluate model performance
+* Visualize predictions
+* Generate purchase predictions
