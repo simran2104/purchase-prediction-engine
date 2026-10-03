@@ -42,7 +42,7 @@ The project uses a retail purchase dataset containing **550,068 transactions** a
 | `Product_Category_1`         | Primary product category                   |
 | `Product_Category_2`         | Secondary product category                 |
 | `Product_Category_3`         | Tertiary product category                  |
-| `Purchase`                   | Purchase amount — **prediction target**    |
+| `Purchase`                   | Purchase amount - **prediction target**    |
 
 The observed purchase amounts range from **12 to 23,961**, with an average purchase amount of approximately **9,264**.
 
