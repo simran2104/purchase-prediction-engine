@@ -145,15 +145,6 @@ The following visualization compares the **actual purchase amounts** with the **
 | **Seaborn**          | Exploratory data visualization        |
 | **Scikit-learn**     | Machine learning and model evaluation |
 | **Jupyter Notebook** | Experimentation and analysis          |
-| **Power BI**         | Interactive data visualization        |
-
----
-
-## 📊 Power BI Dashboard
-
-The project also includes an interactive **Power BI dashboard** for exploring customer demographics, product categories, purchasing behaviour, and overall retail patterns.
-
-<img width="1576" height="846" alt="Power BI Dashboard" src="https://github.com/user-attachments/assets/f25de568-1207-4ad7-995f-49941847dee9" />
 
 ---
 
@@ -177,7 +168,7 @@ pip install -r requirements.txt
 Open:
 
 ```text
-Black-Friday-Sales-Prediction.ipynb
+Purchase-Prediction.ipynb
 ```
 
 Execute the notebook cells to:
